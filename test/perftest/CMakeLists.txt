@@ -3,7 +3,8 @@ set(PERFTEST_SOURCES
     perftest.cpp
     platformtest.cpp
     rapidjsontest.cpp
-    schematest.cpp)
+    schematest.cpp
+    JSON_checker.cc)
 
 add_executable(perftest ${PERFTEST_SOURCES})
 target_link_libraries(perftest ${TEST_LIBRARIES})

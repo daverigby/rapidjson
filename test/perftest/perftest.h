@@ -72,7 +72,7 @@ public:
     virtual void SetUp() {
         {
             const char *paths[] = {
-                "data/sample.json",
+                "data/sample.jsonx",
                 "bin/data/sample.json",
                 "../bin/data/sample.json",
                 "../../bin/data/sample.json",

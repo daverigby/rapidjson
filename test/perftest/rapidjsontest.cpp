@@ -23,6 +23,7 @@
 #include "rapidjson/filereadstream.h"
 #include "rapidjson/encodedstream.h"
 #include "rapidjson/memorystream.h"
+#include "JSON_checker.h"
 
 #ifdef RAPIDJSON_SSE2
 #define SIMD_SUFFIX(name) name##_SSE2
@@ -189,6 +190,13 @@ TEST_F(RapidJson, SIMD_SUFFIX(ReaderParse_DummyHandler_ValidateEncoding)) {
         BaseReaderHandler<> h;
         Reader reader;
         EXPECT_TRUE(reader.Parse<kParseValidateEncodingFlag>(s, h));
+    }
+}
+
+TEST_F(RapidJson, JSON_Checker) {
+    for (size_t i = 0; i < kTrialCount; i++) {
+        JSON_checker::Validator validator;
+        EXPECT_TRUE(validator.validate((uint8_t*)json_, length_));
     }
 }
 
